@@ -1,5 +1,5 @@
 from django.contrib import admin
-from tts_app.models import School, Dean, Department, Cohort, Semester, Student, Lecturer, LectureRoom, Unit, Timetable, Holiday, SchedulingConstraints
+from tts_app.models import School, Dean, Department, Cohort, Semester, Student, Lecturer, LectureRoom, Unit, Course, Timetable, Holiday, SchedulingConstraints
 
 # Register your models here.
 @admin.register(School)
@@ -8,7 +8,8 @@ class SchoolAdmin(admin.ModelAdmin):
 
 @admin.register(Dean)
 class DeanAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("first_name", "last_name", "school")
+    list_filter = ("department", "school")
 
 @admin.register(Department)
 class DepartmentAdmin(admin.ModelAdmin):
@@ -20,15 +21,18 @@ class CohortAdmin(admin.ModelAdmin):
 
 @admin.register(Semester)
 class SemesterAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("semester_name", "start_date", "end_date")
 
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("first_name", "last_name", "admission_number", "course", "department")
+    list_filter = ("department", "school", "course")
+    search_fields = ("first_name", )
 
 @admin.register(Lecturer)
 class LecturerAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("first_name", "last_name", "school_email", "department", "school")
+    list_filter = ("department", "school")
 
 @admin.register(LectureRoom)
 class LectureRoomAdmin(admin.ModelAdmin):
@@ -36,7 +40,11 @@ class LectureRoomAdmin(admin.ModelAdmin):
 
 @admin.register(Unit)
 class UnitAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("unit_code", "unit_name", "course", "lecturer")
+
+@admin.register(Course)
+class CourseAdmin(admin.ModelAdmin):
+    list_display = ("course_name", "department", "school")
 
 @admin.register(Timetable)
 class TimetableAdmin(admin.ModelAdmin):
