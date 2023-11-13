@@ -1,5 +1,6 @@
 from django.db import models
 import uuid
+from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
 class School(models.Model):
@@ -14,7 +15,9 @@ class Dean(models.Model):
     dean_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
-    school_email = models.CharField(max_length=30, unique=True)
+    phoneNumber = PhoneNumberField(unique=True, null=True)
+    school_email = models.CharField(max_length=50, unique=True)
+    school = models.ForeignKey(School, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
@@ -32,12 +35,12 @@ class Department(models.Model):
         ]
 
     def __str__(self):
-        return f"{self.department_name} - {self.school}"
+        return f"{self.department_name}"
     
 
 class Cohort(models.Model):
     cohort_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    cohort_name = models.CharField(max_length=8)
+    cohort_name = models.CharField(max_length=10)
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
 
     class Meta:
@@ -47,7 +50,7 @@ class Cohort(models.Model):
             ]
         
     def __str__(self):
-        return f"{self.cohort_name} - {self.department}"
+        return f"{self.cohort_name}"
 
 
 class Semester(models.Model):
@@ -60,14 +63,32 @@ class Semester(models.Model):
         return self.semester_name
 
 
+class Course(models.Model):
+    course_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    course_name = models.CharField(max_length=50)
+    department = models.ForeignKey(Department, on_delete=models.CASCADE)
+    school = models.ForeignKey(School, on_delete=models.CASCADE)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=['course_name'], name='idx_course_name_id'),
+        ]
+
+    def __str__(self):
+        return self.course_name
+
+
 class Student(models.Model):
     student_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     date_of_birth = models.DateField()
-    school_email = models.CharField(max_length=20)
-    school = models.CharField(max_length=50)
-    department_name = models.CharField(max_length=50)
+    phoneNumber = PhoneNumberField(unique=True, null=True)
+    admission_number = models.CharField(max_length=20, null=True)
+    school_email = models.CharField(max_length=50)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
+    school = models.ForeignKey(School, on_delete=models.CASCADE)
+    department = models.ForeignKey(Department, on_delete=models.CASCADE)
     cohort = models.ForeignKey(Cohort, on_delete=models.CASCADE)
     enrolled_year = models.IntegerField()
     semester_in_session = models.BooleanField()
@@ -86,14 +107,17 @@ class Lecturer(models.Model):
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     date_of_birth = models.DateField()
-    school_email = models.CharField(max_length=20, unique=True)
-    school = models.CharField(max_length=50)
-    department_name = models.CharField(max_length=50)
+    phoneNumber = PhoneNumberField(unique=True, null=True)
+    school_email = models.CharField(max_length=50, unique=True)
+    #school = models.CharField(max_length=50)
+    school = models.ForeignKey(School, on_delete=models.CASCADE)
+    #department = models.CharField(max_length=50)
+    department = models.ForeignKey(Department, on_delete=models.CASCADE, null=True)
     status = models.BooleanField()
     
     class Meta:
         indexes = [
-            models.Index(fields=['department_name'], name='idx_lecturer_department_name'),
+            models.Index(fields=['department'], name='idx_lecturer_department_name'),
         ]
 
     def __str__(self):
@@ -102,16 +126,18 @@ class Lecturer(models.Model):
 
 class LectureRoom(models.Model):
     room_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    room_location = models.CharField(max_length=10)
+    room_location = models.CharField(max_length=20)
     room_capacity = models.IntegerField()
 
     def __str__(self):
-        return f"Room{self.room_id} - {self.room_location}"
+        return f"{self.room_location} / {self.room_capacity}"
 
 
 class Unit(models.Model):
     unit_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    unit_name = models.CharField(max_length=20)
+    unit_code = models.CharField(max_length=10, null=True)
+    unit_name = models.CharField(max_length=50)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
     lecturer = models.ForeignKey(Lecturer, on_delete=models.CASCADE)
 
@@ -122,7 +148,7 @@ class Unit(models.Model):
 
     def __str__(self):
         return self.unit_name
-    
+         
 
 class Timetable(models.Model):
     timetable_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -146,6 +172,7 @@ class Timetable(models.Model):
 class Holiday(models.Model):
     holiday_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     holiday_name = models.CharField(max_length=20)
+    cohort = models.ForeignKey(Cohort, on_delete=models.CASCADE, null=True)
     start_date = models.DateField()
     end_date = models.DateField()
 

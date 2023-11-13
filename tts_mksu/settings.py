@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "tts_app",
+    "phonenumber_field",#this provide the PhoneNumberField entry for phone numbers
 ]
 
 MIDDLEWARE = [
