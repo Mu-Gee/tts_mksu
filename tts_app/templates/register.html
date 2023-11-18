@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/b57484e4c1.js" crossorigin="anonymous"></script>
+</head>
+<body>
+        <form id="form-box" action="" method="GET">
+            <div class="header"><h3>Register Now</h3></div>
+            <!--USERNAME-->
+            <div class="input-field " >
+                <input type="text" id="username" placeholder="Enter Your Name" name="username">
+                <i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <p>Error Message</p>
+            </div>
+            <!--EMAIL-->
+            <div class="input-field">
+                <input type="email" id="email" placeholder="Enter Your Email" name="email">
+                <i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <p>Error Message</p>
+            </div>
+            <!--PASSWORD-->
+            <div class="input-field">
+                <input type="password" id="password" placeholder="Enter Your Password" name="password">
+            <i class="fa-solid fa-circle-check"></i>
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <p>Error Message</p>
+            </div>
+            <!--CONFIRM PASSWORD-->
+             <div class="input-field">
+                 <input type="password" id="con_password" placeholder="Confirm Your Password" name="con_password">
+                 <i class="fa-solid fa-circle-check"></i>
+                 <i class="fa-solid fa-circle-exclamation"></i>
+                 <p>Error Message</p>
+                </div>
+
+            <button type="submit" class="form-btn"> Register Now</button>
+            <p> Already have an account? <a href="log_in.html">Log In Now</a></p>
+        </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
