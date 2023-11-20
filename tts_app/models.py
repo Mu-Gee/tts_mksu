@@ -3,6 +3,17 @@ import uuid
 from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
+
+# user_authentication
+class UserProfile(models.Model):
+    username = models.CharField(max_length=100, unique=True)
+    password = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.username
+    
+
+
 class School(models.Model):
     school_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     school_name = models.CharField(max_length=50)
