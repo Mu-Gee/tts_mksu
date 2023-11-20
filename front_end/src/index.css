@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('src/wallpap.jpg'); 
+  background-size: cover;
+  background-position: center;
+  font-family: 'Arial', sans-serif;
+}
+.logo {
+  filter: brightness(1.0); 
+}
+
+.logo-container {
+  background-color: brown; 
+}
+
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+.centered-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: yellow;
+  color: black;
+  
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 10px 0;
+}
+
+.centered-button:hover {
+  background-color: purple;
+}
+
+
+@media (max-width: 600px) {
+  .centered-button {
+    font-size: 16px;
+  }
+}
+
+
+
+.StudentLogin-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: darkblue;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.StudentLogin-header {
+  text-align: center;
+  color: yellow;
+}
+
+.StudentLogin-input {
+  width: calc(100% - 20px); 
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box; 
+}
+
+.StudentLogin-button {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.StudentLogin-button:hover {
+  background-color: purple;
+}
+
+.StudentLogin-link {
+  color: yellow;
+}
+
+
+
+
+.StudentSignUp-container {
+  max-width: 400px;
+  margin: 50px auto; 
+  padding: 20px;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.StudentSignUp-header {
+  text-align: center;
+  color: #333;
+}
+
+.StudentSignUp-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.StudentSignUp-label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.StudentSignUp-input {
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.StudentSignUp-button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.StudentSignUp-button:hover {
+  background-color: #2980b9;
+}
+
+.StudentSignUp-link {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.StudentSignUp-link:hover {
+  text-decoration: underline;
+}
+
+
+.LecturerLogin-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: darkblue;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.LecturerLogin-header {
+  text-align: center;
+  color: yellow;
+}
+
+.LecturerLogin-input {
+  width: calc(100% - 20px); 
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: border-box; 
+}
+
+.LecturerLogin-button {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.LecturerLogin-button:hover {
+  background-color: purple;
+}
+
+.LecturerLogin-link {
+  color: yellow;
+}
+
+
+
+
+.LecturerSignUp-container {
+  max-width: 400px;
+  margin: 50px auto; 
+  padding: 20px;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.LecturerSignUp-header {
+  text-align: center;
+  color: #333;
+}
+
+.LecturerSignUp-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.LecturerSignUp-label {
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.LecturerSignUp-input {
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.LecturerSignUp-button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.LecturerSignUp-button:hover {
+  background-color: #2980b9;
+}
+
+.LecturerSignUp-link {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.StudentSignUp-link:hover {
+  text-decoration: underline;
+}
+
+
+
+    
