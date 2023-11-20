@@ -1,7 +1,11 @@
 from django.contrib import admin
-from tts_app.models import School, Dean, Department, Cohort, Semester, Student, Lecturer, LectureRoom, Unit, Course, Timetable, Holiday, SchedulingConstraints
+from tts_app.models import UserProfile, School, Dean, Department, Cohort, Semester, Student, Lecturer, LectureRoom, Unit, Course, Timetable, Holiday, SchedulingConstraints
 
 # Register your models here.
+@admin.register(UserProfile)
+class UserAdmin(admin.ModelAdmin):
+    list_display  = ("username",)
+
 @admin.register(School)
 class SchoolAdmin(admin.ModelAdmin):
     pass

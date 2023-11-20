@@ -1,32 +1,13 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login form</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/b57484e4c1.js" crossorigin="anonymous"></script>
-</head>
-<body>
-        <form id="form-box" action="" method="GET">
-            <div class="header" ><h3>LogIn Now</h3></div>
-           
-            <div class="input-field ">
-                <input type="email" id="email"  placeholder="Enter Your Email" name="email">
-                <i class="fa-solid fa-circle-check"></i>
-                <i class="fa-solid fa-circle-exclamation"></i>
-                <p>Error Message</p>
-            </div>
-            <div class="input-field">
-                <input type="password" id="password"  placeholder="Enter Your Password" name="password">
-                <i class="fa-solid fa-circle-check"></i>
-                <i class="fa-solid fa-circle-exclamation"></i>
-                <p>Error Message</p>
-            </div>
+<!-- user_authentication/templates/user_authentication/login.html -->
+{% extends 'base.html' %}
 
-            <button type="submit" class="form-btn"> LogIn Now</button>
-            <p> Don't have an account? <a href="register.html">Register Now</a></p>
-        </form>
+{% block title %}Login{% endblock %}
 
-    <script src="script.js"></script>
-</body>
-</html>
+{% block content %}
+    <h2>Login</h2>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+{% endblock %}
