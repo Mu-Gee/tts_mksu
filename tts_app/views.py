@@ -55,5 +55,14 @@ def Home(request):
 def School(request):
     return render(request, 'School.html')
 
+def Courses(request):
+    return render(request, 'School.html')
+
 def Timetable(request):
-    return render(request, 'Timetable.html')
+    return render(request, 'School.html')
+
+def Profile(request):
+    return render(request, 'Settings.html')
+
+def Settings(request):
+    return render(request, 'Settings.html')
