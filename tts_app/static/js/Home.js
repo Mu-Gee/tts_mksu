@@ -20,6 +20,11 @@ function redirectToTimetablePage() {
     window.location.href = '/Timetable/';
 }
 
+function redirectToProfilePage() {
+    // Redirect the user to Settings
+    window.location.href = '/Profile/';
+}
+
 function redirectToSettingsPage() {
     // Redirect the user to Settings
     window.location.href = '/Settings/';
