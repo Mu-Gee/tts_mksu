@@ -177,7 +177,7 @@ class Timetable(models.Model):
         ]
 
     def __str__(self):
-        return f"Timetable for {self.unit} on {self.day_of_the_week} from {self.start_time} to {self.end_time}"
+        return f"{self.unit} on {self.day_of_the_week} from {self.start_time} to {self.end_time}"
 
 
 class Holiday(models.Model):

@@ -128,3 +128,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CORS_ALLOW_ALL_ORIGINS = True
 LOGIN_URL = 'login' 
+STATIC_URL = '/tts_app/static/'
+# settings.py
+
+STATIC_ROOT = 'tts_app/static'
+
+

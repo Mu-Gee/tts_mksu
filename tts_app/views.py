@@ -46,3 +46,14 @@ def dashboard(request):
     context = {'user': user}
     return render(request, 'dashboard.html', context)
 
+def Login(request):
+    return render(request, 'Login.html')
+
+def Home(request):
+    return render(request, 'Home.html')
+
+def School(request):
+    return render(request, 'School.html')
+
+def Timetable(request):
+    return render(request, 'Timetable.html')

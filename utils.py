@@ -109,7 +109,7 @@ def show_timetable(matrix):
     Prints timetable matrix.
     """
     days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
-    hours = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    hours = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
 
     # print heading for classrooms
     for i in range(len(matrix[0])):

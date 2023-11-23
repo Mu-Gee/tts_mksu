@@ -108,7 +108,7 @@ def free_hour(matrix):
     Checks if there is an hour without classes. If so, returns it in format 'day: hour', otherwise -1.
     """
     days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
-    hours = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    hours = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
 
     for i in range(len(matrix)):
         exists = True
