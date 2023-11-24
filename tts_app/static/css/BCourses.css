@@ -149,7 +149,6 @@ justify-content: space-evenly;
 align-items: center;
 flex-wrap: wrap;
 gap: 50px;
-color: white;
 }
 .nav {
 min-height: 91vh;
@@ -253,13 +252,11 @@ color: white;
 font-size: 13px;
 font-weight: 400;
 letter-spacing: 1px;
-color: white;
 }
 
 .topic-heading {
 font-size: 30px;
 letter-spacing: 3px;
-color: white;
 }
 
 .report-container {
@@ -336,7 +333,47 @@ background-color: rgb(0, 177, 0);
 color: white;
 border-radius: 4px;
 }
-
- .box{
+button{
+    display: flex;
+}
+table {
+    text-align: left;
+    position: relative;
+    border-collapse: collapse; 
+    background-color: #f6f6f6;
+  }/* Spacing */
+  td, th {
+    border: 1px solid #999;
+    padding: 20px;
+  }
+  th {
+    background: rgb(20, 51, 154);
     color: white;
- }  
+    border-radius: 0;
+    position: sticky;
+    top: 0;
+    padding: 10px;
+  }
+  .primary{
+    background-color: #000000
+  }
+  
+  tfoot > tr  {
+    background: black;
+    color: white;
+  }
+  tbody > tr:hover {
+    background-color: #ffc107;
+  }
+  header {
+    height: 70px;
+    width: 100vw;
+    padding: 0 30px;
+    background-color: var(--background-color1);
+    position: fixed;
+    z-index: 100;
+    box-shadow: 1px 1px 15px rgba(161, 182, 253, 0.825);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }

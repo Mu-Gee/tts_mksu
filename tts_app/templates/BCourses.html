@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-    <link rel="stylesheet"
-		href="School.css">
-	<link rel="stylesheet"
-		href="responsive.css">
+    <title>BCourses</title>
+
+	{% load static %}
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/BCourses.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+	<script src="{% static 'js/BCourses.js' %}"></script>
 </head>
 <body>
     <header>
@@ -61,42 +62,38 @@
 						<h3> Dashboard</h3>
 					</div>
                     <div class="nav-option option4">
-						<a href="School.html"><img src=
+						<img src=
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/6.png"
 							class="nav-img"
 							alt="school">
-						<strong><button><h2> SCHOOL</h2></button></strong>
-                    </a>
+						<strong><button onclick="redirectToSchoolPage()"><h2> SCHOOL</h2></button></strong>
 					</div>
 					<div class="option2 nav-option">
-                        <a href="School.html">
 						<img src=
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
 							class="nav-img"
 							alt="Courses">
-						<strong><button><h2> COURSES</h2></button></strong>
+						<strong><button onclick="redirectToCoursePage()"><h2> COURSES</h2></button></strong>
                     </a>
 					</div>
 
 					<div class="nav-option option3">
-                        <a href="School.html">
 						<img src=
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
 							class="nav-img"
 							alt="report">
-						<strong><button><h2> TIMETABLES</h2></button></strong>
+						<strong><button onclick="redirectToTimetablePage()"><h2> TIMETABLES</h2></button></strong>
                     </a>
 					</div>
 
 			
 
 					<div class="nav-option option5">
-                        <a href="#">
 						<img src=
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png"
 							class="nav-img"
 							alt="blog">
-						<strong><button><h2> PROFILE</h2></button></strong>
+						<strong><button onclick="redirectToProfilePage()"><h2> PROFILE</h2></button></strong>
                     </a>
 					</div>
 
@@ -106,7 +103,7 @@
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
 							class="nav-img"
 							alt="settings">
-						<strong><button><h2> SETTINGS</h2></button></strong>
+						<strong><button onclick="redirectToSettingsPage()"><h2> SETTINGS</h2></button></strong>
                     </a>
 					</div>
 
@@ -116,7 +113,7 @@
 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
 							class="nav-img"
 							alt="logout">
-						<strong><button><h2>LOGOUT</h2></button></strong>
+						<strong><button><h2> LOGOUT</h2></button></strong>
                     </a>
 					</div>
 
@@ -137,53 +134,49 @@
 						alt="search-button">
 				</div>
 			</div>
-
-			<div class="box-container">
-
-				<div class="box box1">
-					<div class="text">
-						<h2 class="topic-heading"></h2>
-						<strong><a href="ECourses.html"><h2 class="topic">School of Engineering</h2></a></strong>
-					</div>
-
-					
-				</div>
-
-				<div class="box box2">
-					<div class="text">
-						
-						<strong><a href="SCourses.html"><h2 class="topic">School of Pure and Applied Sciences</h2></a></strong>
-					</div>
-
-				
-				</div>
-
-				<div class="box box3">
-					<div class="text">
-						
-						<strong><a href="ACourses.html"><h2 class="topic">School of Arts</h2></a></strong>
-					</div>
-
-					
-				</div>
-
-				<div class="box box4">
-					<div class="text">
-						
-						<strong><a href="BCourses.html"><h2 class="topic">School of Business</h2></a></strong>
-					</div>
-
-					
-				</div>
-			</div>
-            
-
-			
-			</div>
-		</div>
-	</div>
-
-	<script src="./Home.js"></script>
-    
+    <table>
+        <caption>SCHOOL OF BUSINESS</caption>
+        <thead>
+          <tr>
+            <th class="primary" scope="col">Courses</th>
+            <th scope="col">Year</th>
+            <th scope="col">Year</th>
+            <th scope="col">Year</th>
+            <th scope="col">Year</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Economics and Statistics</th>
+            <td><a href="{% url 'TT' %}"><h4>1</h4></a></td>
+            <td><a href="{% url 'TT' %}"><h4>2</h4></a></td>
+            <td><a href="{% url 'TT' %}"><h4>3</h4></a></td>
+            <td><a href="{% url 'TT' %}"><h4>4</h4></a></td>
+           
+          </tr>
+          
+          <tr>
+            <th scope="row">Accountant and Finance</th>
+            <td><a href="{% url 'TT' %}"><h4>1</h4></a></td>
+            <td><a href="{% url 'TT' %}"><h4>2</h4></a></td>
+            <td><a href="{% url 'TT' %}"><h4>3</h4></a></td>
+            <td><a href="{% url 'TT' %}"><h4>4</h4></a></td>
+          </tr>
+          <tr>
+            <th scope="row">Business and Statistics</th>
+            <td><a href="{% url 'TT' %}"><h4>1</h4></a></td>
+            <td><a href="{% url 'TT' %}"><h4>2</h4></a></td>
+            <td><a href="{% url 'TT' %}"><h4>3</h4></a></td>
+            <td><a href="{% url 'TT' %}"><h4>4</h4></a></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th>CONTRIBUTE</th>
+            <td colspan="4"><i>Buy Mu-Gee a coffee, contribute to the project</i></td>
+          </tr>
+        </tfoot>
+      </table>
+        
 </body>
 </html>

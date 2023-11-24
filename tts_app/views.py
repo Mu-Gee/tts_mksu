@@ -46,6 +46,7 @@ def dashboard(request):
     context = {'user': user}
     return render(request, 'dashboard.html', context)
 
+
 def Login(request):
     return render(request, 'Login.html')
 
@@ -66,3 +67,20 @@ def Profile(request):
 
 def Settings(request):
     return render(request, 'Settings.html')
+
+# These are sub-pages within the main pages
+def ECourses(request):
+    return render(request, 'ECourses.html')
+
+def SCourses(request):
+    return render(request, 'SCourses.html')
+
+def ACourses(request):
+    return render(request, 'ACourses.html')
+
+def BCourses(request):
+    return render(request, 'BCourses.html')
+
+# This gets the actual time table template when needed
+def TT(request):
+    return render(request, 'Timetable.html')
